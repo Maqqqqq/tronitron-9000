@@ -2,6 +2,10 @@
 
 A Tron-like survival game. Up to four players join from their browsers, steer with the keyboard, and outlast their rivals.
 
+## Authors
+- Markus Stamm
+- Anders Mait Alberg
+
 ## Getting Started
 
 ```bash
