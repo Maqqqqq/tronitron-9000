@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tronitron 9000</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="app">
+      <header class="app-header">
+        <h1>Tronitron 9000</h1>
+        <div class="header-meta">
+          <span id="connection-indicator" class="status offline">Offline</span>
+          <span id="timer-display">00:00</span>
+        </div>
+      </header>
+
+      <main>
+        <section id="join-screen" class="panel">
+          <h2>Join the Lobby</h2>
+          <div class="cheatsheet">
+            <h3>How to Ride</h3>
+            <ul>
+              <li><strong>Move:</strong> Arrow Keys or WASD</li>
+              <li><strong>Menu:</strong> Esc or click Menu button</li>
+              <li><strong>Pause/Resume/Quit:</strong> Use in-game menu</li>
+              <li><strong>Goal:</strong> Stay alive, avoid trails, grab power-ups for bonuses</li>
+            </ul>
+          </div>
+          <div class="lobby-preview">
+            <div class="preview-header">
+              <h3>Current Lobby</h3>
+              <span id="join-lobby-status" class="status-note"></span>
+            </div>
+            <ul id="join-lobby-list" class="lobby-list slim"></ul>
+            <p class="tip">Enter a name to join the arena. Hosts can start once everyone is ready.</p>
+          </div>
+          <form id="join-form">
+            <label for="player-name">Player name</label>
+            <div class="input-row">
+              <input
+                id="player-name"
+                name="playerName"
+                type="text"
+                maxlength="18"
+                placeholder="Enter a unique name"
+                required
+              />
+              <button type="submit" class="primary">Join</button>
+            </div>
+            <p id="join-error" class="error"></p>
+          </form>
+          <p class="tip">Up to four players can join. The first player becomes host.</p>
+        </section>
+
+        <section id="lobby-screen" class="panel hidden">
+          <div class="panel-header">
+            <h2>Lobby</h2>
+            <button id="start-button" class="primary" disabled>Start Match</button>
+          </div>
+          <div class="cheatsheet compact">
+            <h3>Controls</h3>
+            <p>Steer with Arrow Keys / WASD · Esc opens menu · Power-ups boost speed or clear trails.</p>
+          </div>
+          <ul id="lobby-list" class="lobby-list"></ul>
+          <p id="lobby-status" class="status-note"></p>
+        </section>
+
+        <section id="game-screen" class="panel hidden">
+          <div class="hud">
+            <div id="scoreboard" class="scoreboard"></div>
+            <div class="hud-side">
+              <div id="message-feed" class="message-feed"></div>
+              <div id="fps-indicator" class="fps-indicator">FPS: --</div>
+            </div>
+          </div>
+          <div id="arena-wrapper">
+            <div id="arena" class="arena"></div>
+          </div>
+          <div class="controls">
+            <button id="menu-button" class="ghost">Menu</button>
+          </div>
+        </section>
+      </main>
+
+      <div id="menu-overlay" class="overlay hidden" role="dialog" aria-modal="true">
+        <div class="menu-dialog">
+          <h2>Game Menu</h2>
+          <p id="menu-status"></p>
+          <div class="menu-actions">
+            <button id="resume-btn" class="primary">Resume</button>
+            <button id="pause-btn">Pause</button>
+            <button id="restart-btn" class="ghost">Restart</button>
+            <button id="return-btn" class="ghost hidden">Return to Lobby</button>
+            <button id="quit-btn" class="danger">Quit</button>
+          </div>
+          <p class="tip">ESC closes this menu.</p>
+        </div>
+      </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script type="module" src="client.js"></script>
+  </body>
+</html>

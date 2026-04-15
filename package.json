@@ -1,0 +1,25 @@
+{
+  "name": "tronitron-9000",
+  "version": "1.0.0",
+  "description": "Tronitron 9000 — a DOM-only multiplayer lightcycle arena for up to four players.",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon server.js",
+    "start": "node server.js"
+  },
+  "keywords": [
+    "multiplayer",
+    "websocket",
+    "tron",
+    "dom"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "socket.io": "^4.7.5"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  }
+}
